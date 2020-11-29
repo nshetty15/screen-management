@@ -1,0 +1,16 @@
+{
+  "name": "screen-management",
+  "version": "1.0.0",
+  "description": "Rest API for dynamic screen management",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon --inspect=0.0.0.0 ./server.js",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}

@@ -1,0 +1,44 @@
+---
+swagger: '2.0'
+info:
+  description: 'Rest API for dynamic screen management'
+  version: '1.0.0'
+  title: 'Screen Management API'
+host: 'localhost:8000'
+tags:
+  - name: 'screen-api'
+    description: 'fetch data for dynamic screen management'
+schemes:
+  - 'http'
+paths:
+  /get_meta_data/{module_name}/{screen_name}:
+    get:
+      tags:
+        - 'data'
+      operationId: 'readFile'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'module_name'
+          in: 'path'
+          description: 'The module name that needs to be fetched.'
+          required: true
+          type: 'string'
+        - name: 'screen_name'
+          in: 'path'
+          description: 'The screen name that needs to be fetched.'
+          required: true
+          type: 'string'
+      responses:
+        '200':
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/Data'
+        '400':
+          description: 'Invalid module or screen name supplied'
+        '404':
+          description: 'data not found'
+      x-swagger-router-controller: 'Data'
+definitions:
+  Data:
+    type: 'object'
